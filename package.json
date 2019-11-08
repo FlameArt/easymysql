@@ -1,0 +1,21 @@
+{
+  "name": "easymysql",
+  "version": "1.0.0",
+  "description": "easy and fast mysql requests",
+  "main": "MySQL.js",
+  "scripts": {},
+  "keywords": [
+    "mysql",
+    "bulk",
+    "insert",
+    "update",
+    "get",
+    "requests",
+    "sql"
+  ],
+  "author": "FlameArt",
+  "license": "MIT",
+  "dependencies": {
+    "mysql": "^2.17.1"
+  }
+}
