@@ -37,7 +37,7 @@ let rows = [
     {
         name: 'Kate',
         sex: 2,
-        // That field will
+        // That field will be serialized
         categories: [
             'cats lover',
             'hello kitty'
