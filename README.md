@@ -52,8 +52,8 @@ let rows = [
     },
 ];
 
-// Insert all non-unique rows, and update other only if column type=3
-await SQL.BulkUpdate('table_name', rows, ['not_update_these_field'], 'type=3']);
+// Insert all non-unique rows, and update other only if column sex=1
+await SQL.BulkUpdate('table_name', rows, ['not_update_these_field'], 'sex=1']);
 
 // or just
 await SQL.BulkUpdate('table_name', rows);
