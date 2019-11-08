@@ -43,7 +43,7 @@ let rows = [
             'hello kitty'
         ]
     },
-    // That will be updated, instead of insert
+    // That will be updated, instead of insert, if id=177 exists, cause 'id' is non-unique field
     // Missed field 'categories' will be filled by default mysql value
     {
         id: 177,
