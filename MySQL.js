@@ -25,10 +25,9 @@ class MySQLClass {
      * @param user
      * @param password
      * @param database
-     * @param callback
      * @return {Promise}
      */
-    connect(host,port,user,password,database,callback) {
+    connect(host,port,user,password,database) {
         
         let that = this;
         
@@ -91,9 +90,8 @@ class MySQLClass {
      * @param query
      * @param params
      * @param array Массив, куда поместить результаты
-     * @param callback
      */
-    all(query,params=null,array,callback) {
+    all(query,params=null,array) {
         
         return new Promise(( resolve, reject )=>{
     
@@ -180,9 +178,8 @@ class MySQLClass {
      * Получить одну [первую] запись
      * @param query
      * @param params
-     * @param callback
      */
-    one(query,params=null,callback) {
+    one(query,params=null) {
     
         return new Promise(( resolve, reject )=> {
     
