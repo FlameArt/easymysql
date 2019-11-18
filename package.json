@@ -1,9 +1,16 @@
 {
-  "name": "easymysql",
+  "name": "asyncmysql",
   "version": "1.0.0",
-  "description": "easy and fast mysql requests",
+  "description": "async, easy and fast mysql requests",
   "main": "MySQL.js",
   "scripts": {},
+  "dependencies": {
+    "mysql": "^2.17.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FlameArt/easymysql.git"
+  },
   "keywords": [
     "mysql",
     "bulk",
@@ -13,9 +20,10 @@
     "requests",
     "sql"
   ],
+  "homepage": "https://github.com/FlameArt/easymysql",
+  "bugs": {
+    "url": "https://github.com/FlameArt/easymysql/issues"
+  },
   "author": "FlameArt",
-  "license": "MIT",
-  "dependencies": {
-    "mysql": "^2.17.1"
-  }
+  "license": "MIT"
 }

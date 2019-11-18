@@ -16,6 +16,13 @@ class MySQLClass {
          */
         this.isLogging = true;
         
+        /**
+         * Выводить ли ошибки инсертов или скрывать через insert ignore
+         * Нужно знать
+         * @type {boolean}
+         */
+        this.DisableInsertIgnore = false;
+        
     }
     
     /**
@@ -266,9 +273,8 @@ class MySQLClass {
       });
   
       // один bulk insert запрос для всех новых позиций в этой таблице
-      let insert_query = "INSERT IGNORE INTO " + table + "(";
+      let insert_query = "INSERT " + (that.DisableInsertIgnore ? '' : 'IGNORE') + " INTO " + table + "(";
       let update_query = " ON DUPLICATE KEY UPDATE ";
-  
   
       // Сперва проходимся по всем значениям и создаём список всех уникальных полей с доступом по номеру
       let Fields = [];
