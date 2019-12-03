@@ -1,5 +1,5 @@
 {
-  "name": "asyncmysql",
+  "name": "easymysql",
   "version": "1.0.0",
   "description": "async, easy and fast mysql requests",
   "main": "MySQL.js",
