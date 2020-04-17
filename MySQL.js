@@ -229,8 +229,12 @@ class MySQLClass {
                         return resolve(null, null);
                     }
 
-                    // Есть результаты: возвращаем первый
-                    return resolve(result[0], result);
+                    // Возвращаем номер вставленной строки, если результатов нет, а номер есть
+                    if(result[0]===undefined && result.insertId!==undefined)
+                        return resolve(result.insertId);
+                    else
+                        // Возвращаем первый результат, если результаты есть
+                        return resolve(result[0], result);
 
                 });
 
@@ -409,6 +413,7 @@ class MySQLClass {
             return this.all("SELECT * FROM " + normTables);
         else
             return this.all("SELECT * FROM " + normTables + " WHERE " + where, whereparams);
+
     }
 
     /**
@@ -429,6 +434,7 @@ class MySQLClass {
             return this.one("SELECT * FROM " + normTables);
         else
             return this.one("SELECT * FROM " + normTables + " WHERE " + where, whereparams);
+
     }
 
 }
