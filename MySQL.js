@@ -400,19 +400,28 @@ class MySQLClass {
      * @param tables
      * @param where
      * @param whereparams
+     * @param {string} orderBy
      * @return Promise<array|null>
      */
-    selectAll(tables, where = "", whereparams = null) {
+    selectAll(tables, where = "", whereparams = null, orderBy = null) {
 
         // Нормализуем несколько таблиц, если они есть
         let that = this;
         tables = tables.split(',');
         let normTables = tables.map(res => that.escapeID(res)).join(",");
 
+        // сортировка
+        let orderByQuery = "";
+        if(orderBy!==null) {
+            orderBy = orderBy.split(',');
+            orderByQuery = orderBy.map(res => that.escapeID(res)).join(",");
+        }
+
+
         if (where === '')
-            return this.all("SELECT * FROM " + normTables);
+            return this.all("SELECT * FROM " + normTables + orderByQuery);
         else
-            return this.all("SELECT * FROM " + normTables + " WHERE " + where, whereparams);
+            return this.all("SELECT * FROM " + normTables + " WHERE " + where + orderByQuery, whereparams);
 
     }
 
@@ -421,19 +430,27 @@ class MySQLClass {
      * @param tables
      * @param where
      * @param whereparams
+     * @param {string} orderBy
      * @return Promise
      */
-    get(tables, where = "", whereparams = null) {
+    get(tables, where = "", whereparams = null, orderBy = null) {
 
         // Нормализуем несколько таблиц, если они есть
         let that = this;
         tables = tables.split(',');
         let normTables = tables.map(res => that.escapeID(res)).join(",");
 
+        // сортировка
+        let orderByQuery = "";
+        if(orderBy!==null) {
+            orderBy = orderBy.split(',');
+            orderByQuery = orderBy.map(res => that.escapeID(res)).join(",");
+        }
+
         if (where === '')
-            return this.one("SELECT * FROM " + normTables);
+            return this.one("SELECT * FROM " + normTables + orderByQuery);
         else
-            return this.one("SELECT * FROM " + normTables + " WHERE " + where, whereparams);
+            return this.one("SELECT * FROM " + normTables + " WHERE " + where + orderByQuery, whereparams);
 
     }
 
