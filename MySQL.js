@@ -413,8 +413,9 @@ class MySQLClass {
         // сортировка
         let orderByQuery = "";
         if(orderBy!==null) {
-            orderBy = orderBy.split(',');
-            orderByQuery = orderBy.map(res => that.escapeID(res)).join(",");
+            orderByQuery = " ORDER BY " + orderBy
+            //orderBy = orderBy.split(',');
+            //orderByQuery = orderBy.map(res => that.escapeID(res)).join(",");
         }
 
 
@@ -443,8 +444,9 @@ class MySQLClass {
         // сортировка
         let orderByQuery = "";
         if(orderBy!==null) {
-            orderBy = orderBy.split(',');
-            orderByQuery = orderBy.map(res => that.escapeID(res)).join(",");
+            orderByQuery = " ORDER BY " + orderBy
+            //orderBy = orderBy.split(',');
+            //orderByQuery = orderBy.map(res => that.escapeID(res)).join(",");
         }
 
         if (where === '')
