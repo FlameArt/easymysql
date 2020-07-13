@@ -420,9 +420,9 @@ class MySQLClass {
 
 
         if (where === '')
-            return this.all("SELECT * FROM " + normTables + orderByQuery);
+            return this.all("SELECT * FROM " + normTables + orderByQuery + " LIMIT 1");
         else
-            return this.all("SELECT * FROM " + normTables + " WHERE " + where + orderByQuery, whereparams);
+            return this.all("SELECT * FROM " + normTables + " WHERE " + where + orderByQuery + " LIMIT 1", whereparams);
 
     }
 
