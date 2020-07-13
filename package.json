@@ -1,6 +1,6 @@
 {
-  "name": "easymysql",
-  "version": "1.0.0",
+  "name": "eznodemysql",
+  "version": "1.0.1",
   "description": "async, easy and fast mysql requests",
   "main": "MySQL.js",
   "scripts": {},
