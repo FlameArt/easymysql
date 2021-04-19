@@ -7,7 +7,7 @@ Promise based, easy and fast methods for MySQL requests.
 ## Usage
 
 ```
-const SQL = new (require('easymysql'));
+const SQL = new (require('eznodemysql'));
 
 // Wait for connecting
 await SQL.connect(host, port, user, password, database_name);

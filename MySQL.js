@@ -38,6 +38,9 @@ class MySQLClass {
 
         let that = this;
 
+        // пустой промис если соединение уже есть
+        if(that.connected) return new Promise(res=>{res()});
+
         // Делаем коннект с базой
         that.con = this.mysqlObject.createConnection({
             host: host,
