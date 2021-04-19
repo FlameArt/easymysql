@@ -2,7 +2,7 @@
 
 Promise based, easy and fast methods for MySQL requests.
 
-    npm install --save FlameArt/easymysql
+    npm install --save eznodemysql
 
 ## Usage
 
