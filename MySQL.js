@@ -94,6 +94,17 @@ class MySQLClass {
 
     }
 
+    disconnect() {
+        let that = this;
+        return new Promise((resolve, reject)=>{
+            that.con.end(function (err){
+              // TODO: errors
+              resolve(true);
+              that.connected = false;
+            })
+        })
+    }
+
     /**
      * Получить все записи
      * @param query
