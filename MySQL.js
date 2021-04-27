@@ -66,7 +66,7 @@ class MySQLClass {
                 that.connected = true;
 
                 // Запускаем таймер, который будет пинговать сервер, чтобы он не закрывал соединение
-                let pingInterval = setInterval(function () {
+                that.pingInterval = setInterval(function () {
                     try {
                         that.con.query('SELECT 1');
                     } catch ($ex) {
@@ -98,9 +98,13 @@ class MySQLClass {
         let that = this;
         return new Promise((resolve, reject)=>{
             that.con.end(function (err){
+
               // TODO: errors
-              resolve(true);
+
+              clearInterval(that.pingInterval);
               that.connected = false;
+              resolve(true);
+
             })
         })
     }
