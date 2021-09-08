@@ -398,6 +398,22 @@ class MySQLClass {
     }
 
     /**
+     * Вставить одну запись и вернуть её ID
+     * @param table
+     * @param data
+     * @returns {Promise}
+     */
+    insertOne(table, data) {
+
+        let columns = [], rows = [];
+        for (const column in data) {columns.push(this.escapeID(column)); rows.push(this.escape(data[column]))}
+        let query = "INSERT INTO " + this.escapeID(table) + "(" + columns.join(",") + ") VALUES (" + rows.join(",") + ")";
+
+        return this.one(query);
+
+    }
+
+    /**
      *
      * @param str
      */
