@@ -414,6 +414,24 @@ class MySQLClass {
     }
 
     /**
+     * Обновить одну запись и вернуть её ID
+     * @param table
+     * @param data только те поля, что нуждаются в обновлении
+     * @returns {Promise}
+     */
+    updateOne(table, data) {
+
+        let query = "UPDATE " + this.escapeID(table) + " SET "
+        for (const column in data)
+            query += this.escapeID(column) + "=" + this.escape(data[column]) + ",";
+
+        query = query.substr(0,query.length-1);
+
+        return this.one(query);
+
+    }
+
+    /**
      *
      * @param str
      */
