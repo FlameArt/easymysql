@@ -436,7 +436,7 @@ class MySQLClass {
         // Если не указано ни одного условия - для безопасности возвращаем false, чтобы кодер задумался в чём проблема и если надо просто бы сделал where=true
         if(whereFilter === "") return false;
 
-        return this.one(query + where);
+        return this.one(query + whereFilter);
 
     }
 
