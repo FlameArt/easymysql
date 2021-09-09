@@ -417,15 +417,24 @@ class MySQLClass {
      * Обновить одну запись и вернуть её ID
      * @param table
      * @param data только те поля, что нуждаются в обновлении
+     * @param id конкретный айди для обновления
+     * @param where
      * @returns {Promise}
      */
-    updateOne(table, data) {
+    updateOne(table, data, id = null, where = null) {
 
         let query = "UPDATE " + this.escapeID(table) + " SET "
         for (const column in data)
             query += this.escapeID(column) + "=" + this.escape(data[column]) + ",";
 
         query = query.substr(0,query.length-1);
+
+        let whereFilter = "";
+        if(id !== null) whereFilter = " WHERE `id`=" + this.escape(id) + " LIMIT 1";
+        if(where !== null) whereFilter = " WHERE " + where;
+
+        // Если не указано ни одного условия - для безопасности возвращаем false, чтобы кодер задумался в чём проблема и если надо просто бы сделал where=true
+        if(whereFilter === "") return false;
 
         return this.one(query);
 
